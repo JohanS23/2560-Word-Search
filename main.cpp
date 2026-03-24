@@ -2,8 +2,9 @@
 #include <iostream>
 using namespace std;
 
-void findMatches()
+void findMatches(const Dictionary& dict, const Grid& grid)
 {
+  
   
 }
 
