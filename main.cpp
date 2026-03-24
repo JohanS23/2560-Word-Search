@@ -1,38 +1,82 @@
-#include "Dictionary.h"
+#include <string>
 #include <iostream>
 #include <fstream>
+#include "Dictionary.h"
 #include "grid.h"
 using namespace std;
 
-void findMatches(const Dictionary& dict, const Grid& grid)
+void findMatches(const Dictionary& dict, const grid& g) //global func
 {
-  //read in grid and make into matrix format
-  //know the matrix bounds
-  string wordMaybe;
-  int imax, jmax; //bounds of matrix
-
-  int imax = g.m.rows();
-  int jmax = g.m.cols();
+  int imax = g.m.rows(), jmax = g.m.cols(); //bounds of matrix
+  cout << "word \t start point (i, j) \t found_index" << endl; //formatting print
   
-  if (imax < 5 && jmax < 5)
+  //iterate through matrix; find all starting letters of possible words (must be 5 characters or more)
+  for (int i = 0; i < imax; i++) //row iteration
   {
-    return; //fixed
-  }
-
-  //big four loops, iterate through matrix finding all possible starting letters.
-  for (int i = 0; i < imax; i++) //row iteration (imax is a matrix bound)
-  {
-      for (int j = 0; j < jmax; j++) //column iteration (jmax is matrix bound)
+      for (int j = 0; j < jmax; j++) //column iteration
       {
-        //check all possible words going down
-
-        //check all possible words going diagonally
-
         //check all possible words going across
-      }
+        if ((jmax - j) >= 5)
+        {
+            string wordMaybe = "";
+            for (int col = j; col < jmax; col++) //iterating across row to find possible letters of word
+            {
+                wordMaybe += g.m[i][col]; //possible word
+                
+                if (wordMaybe.length() >= 5) //check that word is 5 characters or more
+                {
+                    int found_index = dict.binarySearch(wordMaybe);
+                    if (found_index != -1) //is it in the dictionary?
+                    {
+                        cout << wordMaybe << "\t (" << i << "," << j << ") \t" << found_index; //print results
+                    }
+                }
+            }
+        }
+
+       //check all possible words going down
+       if ((imax - j) >= 5)
+       {
+           string wordMaybe = "";
+           for (int row = i; row < imax; row++) //iterating down columns to find possible letters of word
+           {
+               wordMaybe += g.m[row][j]; //possible word
+               
+               if (wordMaybe.length() >= 5) //words must be 5 characters or more
+               {
+                   int found_index = dict.binarySearch(wordMaybe);
+                   if (found_index != -1) //is it in the dictionary?
+                   {
+                       cout << wordMaybe << "\t (" << i << "," << j << ") \t" << found_index; //print results
+                   }
+               }
+           }
+       }
+
+       //check all possible words going diagonally
+       if ((jmax - j) >= 5)
+       {
+           string wordMaybe = "";
+           int row = i, col = j;
+           
+           while (row < imax && col < jmax) //iterating through matrix to find words on the diagonal
+           {
+               wordMaybe += g.m[row][col]; //possible word
+               
+               if (wordMaybe.length() >= 5) //words must be 5 characters or more
+               {
+                   int found_index = dict.binarySearch(wordMaybe);
+                   if (found_index != -1) //is it in the dictionary?
+                   {
+                       cout << wordMaybe << "\t (" << i << "," << j << ") \t" << found_index; //print results
+                   }
+               }
+               row++;
+               col++;
+          }
+       }
+    }
   }
-  
-  
 }
 
 void search() {
