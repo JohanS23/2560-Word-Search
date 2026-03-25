@@ -1,3 +1,12 @@
+/*
+WordSearch part a
+EECE 2560
+3/24/26
+Group ID + #: ROBKLISYGRE 10
+grid.h
+This file declares the grid class
+*/
+
 #include <iostream>
 #include <fstream>
 #include "matrix.h"
