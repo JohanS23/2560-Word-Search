@@ -206,36 +206,35 @@ void findMatches(const Dictionary& dict, const grid& g) //global func
 
 void search()
 {
-    string gridFile;
-    string dictFile = "Dictionary.txt";
+    string gridFile; // variable to store the grid file name entered by user
+    string dictFile = "Dictionary.txt"; // dictionary file name (fixed)
 
-    cout << "Enter grid filename: ";
-    cin >> gridFile;
+    cout << "Enter grid filename: "; // prompt user for grid file
+    cin >> gridFile; // read user input
 
-    ifstream in(gridFile);
-    if (!in)
+    ifstream in(gridFile); // open the grid file
+    if (!in) // check if file failed to open
     {
-        cout << "Error opening grid file." << endl;
-        return;
+        cout << "Error opening grid file." << endl; // error message if file not found
+        return; // exit function early
     }
 
-    int rows, cols;
-    if (!(in >> rows >> cols))
+    int rows, cols; // variables to store grid dimensions
+    if (!(in >> rows >> cols)) // try to read dimensions from file
     {
-        cout << "Error reading grid dimensions." << endl;
-        return;
+        cout << "Error reading grid dimensions." << endl; // error if format is wrong
+        return; // exit function
     }
-    in.close();
+    in.close(); // close file after reading dimensions
 
-    Dictionary dict;
-    dict.readFromFile(dictFile);
-    dict.selectionSort();
+    Dictionary dict; // create dictionary object
+    dict.readFromFile(dictFile); // load words from dictionary file
+    dict.selectionSort(); // sort dictionary for binary search
 
-    grid g(gridFile, rows, cols);
+    grid g(gridFile, rows, cols); // create grid object using file and dimensions
 
-    findMatches(dict, g);
+    findMatches(dict, g); // search for matching words in the grid
 }
-
 int main()
 {
     search();
