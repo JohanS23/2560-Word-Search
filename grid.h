@@ -12,6 +12,8 @@ public:
         ifstream inputFile(file_name);
         if (!inputFile)
             cout << "Error: could not open file" << endl;
+        int rows, cols;
+        inputFile >> rows >> cols;  // skip the first line (dimensions)
 
         for (int i = 0; i < m.rows(); i++)
             for (int j = 0; j < m.cols(); j++)
