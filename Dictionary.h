@@ -1,3 +1,12 @@
+/*
+WordSearch part a
+EECE 2560
+3/24/26
+Group ID + #: ROBKLISYGRE 10
+Dictionary.h
+This file declares the dictionary class
+*/
+
 #ifndef DICTIONARY_H
 #define DICTIONARY_H
 
