@@ -1,3 +1,12 @@
+/*
+WordSearch part a
+EECE 2560
+3/24/26
+Group ID + #: ROBKLISYGRE 10
+matrix.h
+This file declares the matrix class
+*/
+
 #ifndef MATRIX_CLASS
 #define MATRIX_CLASS
 
