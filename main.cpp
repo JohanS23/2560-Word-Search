@@ -1,3 +1,12 @@
+/*
+WordSearch part a
+EECE 2560
+3/24/26
+Group ID + #: ROBKLISYGRE 10
+main.cpp
+This file runs the word search program, by implementing all other classes
+*/
+
 #include <string>
 #include <iostream>
 #include <fstream>
