@@ -1,3 +1,12 @@
+/*
+WordSearch part a
+EECE 2560
+3/24/26
+Group ID + #: ROBKLISYGRE 10
+Dictionary.cpp
+This file defines the dictionary class
+*/
+
 #include "Dictionary.h"
 #include <fstream>
 
