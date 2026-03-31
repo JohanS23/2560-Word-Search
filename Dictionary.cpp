@@ -69,6 +69,39 @@ int Dictionary::binarySearch(const string& key) const {
     return -1; // not found
 }
 
+// QuickSort Implementation 
+int Dictionary::partition(vector<string> &words, int low, int high) {
+
+    // Selecting last element as the pivot
+    string pivot = words[high];
+
+    // Index of elemment just before the last element
+    int i = (low - 1);
+
+    for (int j = low; j <= high - 1; j++) {
+
+        // If current element is smaller than or
+        // equal to pivot
+        if (words[j] <= pivot) {
+            i++;
+            swap(words[i], words[j]);
+        }
+    }
+
+    swap(words[i + 1], words[high]);
+    return (i + 1);
+}
+
+void Dictionary::quickSort(vector<string> &words, int low, int high) {
+
+    if (low < high) {
+
+        int pi = partition(words, low, high);
+
+        quickSort(words, low, pi - 1);
+        quickSort(words, pi + 1, high);
+    }
+}
 // Return size of dictionary
 int Dictionary::size() const {
     return words.size();
