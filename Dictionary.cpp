@@ -107,6 +107,13 @@ int Dictionary::size() const {
     return words.size();
 }
 
+void Dictionary::heapsort()
+{
+    heap<string> h;
+    h.initializeMaxHeap(words);
+    words = h.heapsort();
+}
+
 // Overloaded output operator
 ostream& operator<<(ostream& os, const Dictionary& dict) {
     for (const string& word : dict.words) {
