@@ -256,8 +256,8 @@ void search(int select)
     }
     else
     {
-        cout << "Invalid sort choice. Defaulting to binary search..." <<endl;
-        dict.selectionSort(); // sort dictionary for binary search
+        cout << "Invalid sort choice. Goodbye." <<endl;
+        return; // sort dictionary for binary search
     }
 
     grid g(gridFile, rows, cols); // create grid object using file and dimensions
