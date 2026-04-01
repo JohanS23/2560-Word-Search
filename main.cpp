@@ -252,7 +252,7 @@ void search(int select)
     else if (select == 3)
     {
         cout << "Using Heap Sort..." << endl;
-        dict.heapSort(); //heap sort
+        dict.heapsort(); //heap sort
     }
     else
     {
