@@ -266,8 +266,9 @@ void search(int select)
 
 int main()
 {
-    int choice;
+    int choice; //user's input
 
+    //user instructions to pick how they would like the program to search for the words
     cout << "Choose sorting algorithm:" << endl;
     cout << "1. Selection Sort" << endl;
     cout << "2. Quick Sort" << endl;
@@ -275,6 +276,6 @@ int main()
     cout << "Enter your choice here as an integer (1, 2, 3): ";
     cin >> choice;
     
-    search(choice);
+    search(choice); //opens the dictionary and grid files and sorts through the dictionary file in 3 different ways (based on user's choice)
     return 0;
 }
