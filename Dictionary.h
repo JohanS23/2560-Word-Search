@@ -13,6 +13,9 @@ This file declares the dictionary class
 #include <vector>
 #include <string>
 #include <iostream>
+#include "heap.h"
+
+
 
 using namespace std;
 
@@ -36,6 +39,9 @@ public:
 
     // Overloaded output operator to print dictionary
     friend ostream& operator<<(ostream& os, const Dictionary& dict);
+
+    void quickSort();
+    void heapsort();
 };
 
 #endif
