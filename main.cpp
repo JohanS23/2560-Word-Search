@@ -213,7 +213,7 @@ void findMatches(const Dictionary& dict, const grid& g) //global func
     }
 }
 
-void search()
+void search(int select)
 {
     string gridFile; // variable to store the grid file name entered by user
     string dictFile = "Dictionary.txt"; // dictionary file name (fixed)
