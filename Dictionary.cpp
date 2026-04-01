@@ -9,6 +9,7 @@ This file defines the dictionary class
 
 #include "Dictionary.h"
 #include <fstream>
+#include <algorithm>
 
 // Read words from file into vector
 void Dictionary::readFromFile(const string& filename) {
@@ -102,18 +103,31 @@ void Dictionary::quickSort(vector<string> &words, int low, int high) {
         quickSort(words, pi + 1, high);
     }
 }
+// Wrapper function so main.cpp can call quickSort()
+void Dictionary::quickSort()
+{
+    if (!words.empty())
+    {
+        quickSort(words, 0, words.size() - 1);
+    }
+}
+
 // Return size of dictionary
 int Dictionary::size() const {
     return words.size();
 }
 
+//heapsort now reverses for ascending order
 void Dictionary::heapsort()
 {
     heap<string> h;
-    h.initializeMaxHeap(words);
-    words = h.heapsort();
-}
 
+    h.initializeMaxHeap(words);
+
+    words = h.heapsort();
+
+    reverse(words.begin(), words.end()); //required for binary search
+}
 // Overloaded output operator
 ostream& operator<<(ostream& os, const Dictionary& dict) {
     for (const string& word : dict.words) {
