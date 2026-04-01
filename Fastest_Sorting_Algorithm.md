@@ -1,2 +1,3 @@
 5. Give your comment: which sorting algorithm is fastest!
+   
 While both heap sort and quick sort have O(n log n) time complexity, quick sort is generally faster. This is because quick sort accesses memory sequentially, while heap sort frequently jumps around the array. Additionally, heap sort has larger constant factors because maintaining heap structure requires more comparisons and swaps. As a result, quick sort is faster than heap sort. 
