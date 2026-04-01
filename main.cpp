@@ -238,14 +238,43 @@ void search(int select)
 
     Dictionary dict; // create dictionary object
     dict.readFromFile(dictFile); // load words from dictionary file
-    dict.selectionSort(); // sort dictionary for binary search
+
+    if (select == 1)
+    {
+        cout << "Using Selection Sort..." << endl;
+        dict.selectionSort(); // sort dictionary for binary search
+    }
+    else if (select == 2)
+    {
+        cout << "Using Quick Sort..." << endl;
+        dict.quickSort(); //quick sort
+    }
+    else if (select == 3)
+    {
+        cout << "Using Heap Sort..." << endl;
+        dict.heapSort(); //heap sort
+    }
+    else
+    {
+        cout << "Invalid sort choice. Defaulting to binary search..." <<endl;
+        dict.selectionSort(); // sort dictionary for binary search
+    }
 
     grid g(gridFile, rows, cols); // create grid object using file and dimensions
-
     findMatches(dict, g); // search for matching words in the grid
 }
+
 int main()
 {
-    search();
+    int choice;
+
+    cout << "Choose sorting algorithm:" << endl;
+    cout << "1. Selection Sort" << endl;
+    cout << "2. Quick Sort" << endl;
+    cout << "3. Heap Sort" << endl;
+    cout << "Enter your choice here as an integer (1, 2, 3): ";
+    cin >> choice;
+    
+    search(choice);
     return 0;
 }
