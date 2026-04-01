@@ -22,6 +22,8 @@ using namespace std;
 class Dictionary {
 private:
     vector<string> words;   // stores all dictionary words
+    int partition(vector<string>& words, int low, int high);
+    void quickSort(vector<string>& words, int low, int high);
 
 public:
     // Reads words from a file into the vector

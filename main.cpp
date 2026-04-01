@@ -21,7 +21,8 @@ void findMatches(const Dictionary& dict, const grid& g) //global func
     int imax = g.m.rows();
     int jmax = g.m.cols();
 
-    cout << "word \t start point (i, j) \t found_index" << endl; //formatting print
+    ofstream outFile("output.txt");
+    outFile << "word \t start point (i, j) \t found_index" << endl; //formatting print
 
     //iterate through matrix; find all starting letters of possible words (must be 5 characters or more)
     for (int i = 0; i < imax; i++) //row iteration
@@ -42,7 +43,7 @@ void findMatches(const Dictionary& dict, const grid& g) //global func
                         int found_index = dict.binarySearch(wordMaybe);
                         if (found_index != -1) //is it in the dictionary?
                         {
-                            cout << wordMaybe << "\t (" << i << "," << j << ") \t\t " << found_index << endl; //print results
+                            outFile << wordMaybe << "\t (" << i << "," << j << ") \t\t " << found_index << endl; //print results
                         }
                     }
                 }
@@ -61,7 +62,7 @@ void findMatches(const Dictionary& dict, const grid& g) //global func
                         int found_index = dict.binarySearch(wordMaybe);
                         if (found_index != -1) //is it in the dictionary?
                         {
-                            cout << wordMaybe << "\t (" << i << "," << j << ") \t\t " << found_index << endl; //print results
+                            outFile << wordMaybe << "\t (" << i << "," << j << ") \t\t " << found_index << endl; //print results
                         }
                     }
                 }
@@ -84,7 +85,7 @@ void findMatches(const Dictionary& dict, const grid& g) //global func
                         int found_index = dict.binarySearch(wordMaybe);
                         if (found_index != -1) //is it in the dictionary?
                         {
-                            cout << wordMaybe << "\t (" << i << "," << j << ") \t\t " << found_index << endl; //print results
+                            outFile << wordMaybe << "\t (" << i << "," << j << ") \t\t " << found_index << endl; //print results
                         }
                     }
 
@@ -106,7 +107,7 @@ void findMatches(const Dictionary& dict, const grid& g) //global func
                         int found_index = dict.binarySearch(wordMaybe);
                         if (found_index != -1) //is it in the dictionary?
                         {
-                            cout << wordMaybe << "\t (" << i << "," << j << ") \t\t " << found_index << endl; //print results
+                            outFile << wordMaybe << "\t (" << i << "," << j << ") \t\t " << found_index << endl; //print results
                         }
                     }
                 }
@@ -125,7 +126,7 @@ void findMatches(const Dictionary& dict, const grid& g) //global func
                         int found_index = dict.binarySearch(wordMaybe);
                         if (found_index != -1) //is it in the dictionary?
                         {
-                            cout << wordMaybe << "\t (" << i << "," << j << ") \t\t " << found_index << endl; //print results
+                            outFile << wordMaybe << "\t (" << i << "," << j << ") \t\t " << found_index << endl; //print results
                         }
                     }
                 }
@@ -148,7 +149,7 @@ void findMatches(const Dictionary& dict, const grid& g) //global func
                         int found_index = dict.binarySearch(wordMaybe);
                         if (found_index != -1) //is it in the dictionary?
                         {
-                            cout << wordMaybe << "\t (" << i << "," << j << ") \t\t " << found_index << endl; //print results
+                            outFile << wordMaybe << "\t (" << i << "," << j << ") \t\t " << found_index << endl; //print results
                         }
                     }
 
@@ -174,7 +175,7 @@ void findMatches(const Dictionary& dict, const grid& g) //global func
                         int found_index = dict.binarySearch(wordMaybe);
                         if (found_index != -1) //is it in the dictionary?
                         {
-                            cout << wordMaybe << "\t (" << i << "," << j << ") \t\t " << found_index << endl; //print results
+                            outFile << wordMaybe << "\t (" << i << "," << j << ") \t\t " << found_index << endl; //print results
                         }
                     }
 
@@ -200,7 +201,7 @@ void findMatches(const Dictionary& dict, const grid& g) //global func
                         int found_index = dict.binarySearch(wordMaybe);
                         if (found_index != -1) //is it in the dictionary?
                         {
-                            cout << wordMaybe << "\t (" << i << "," << j << ") \t\t " << found_index << endl; //print results
+                            outFile << wordMaybe << "\t (" << i << "," << j << ") \t\t " << found_index << endl; //print results
                         }
                     }
 
@@ -211,6 +212,8 @@ void findMatches(const Dictionary& dict, const grid& g) //global func
 
         }
     }
+
+    outFile.close();
 }
 
 void search(int select)

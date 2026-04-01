@@ -126,7 +126,6 @@ void Dictionary::heapsort()
 
     words = h.heapsort();
 
-    reverse(words.begin(), words.end()); //required for binary search
 }
 // Overloaded output operator
 ostream& operator<<(ostream& os, const Dictionary& dict) {
